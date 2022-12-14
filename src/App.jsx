@@ -147,31 +147,103 @@ const price = {
 // 历史纠纷案件
 const dispute = {
   col: [
-    { title: '案件名称', dataIndex: 'name', width: '30%' },
+    { title: '案号', dataIndex: 'code', width: '10%', className: 'miniFont' },
+    {
+      title: '案件名称',
+      dataIndex: 'name',
+      width: '25%',
+      className: 'miniFont',
+    },
+    { title: '案由', dataIndex: 'reason', width: '15%', className: 'miniFont' },
     {
       title: '日期',
       dataIndex: 'date',
+      width: '20%',
+      align: 'center',
+      className: 'miniFont',
     },
     {
       title: '涉案金额',
       dataIndex: 'amount',
       align: 'right',
+      width: '15%',
+      className: 'miniFont',
       render: (a) => {
         return <>{'¥ ' + transformThousand(a)}</>;
+      },
+    },
+    {
+      title: '级别',
+      dataIndex: 'progress',
+      align: 'center',
+      width: '0%',
+      className: 'miniFont',
+      render: (a) => {
+        return (
+          <Tag color="red" key={a}>
+            {a}
+          </Tag>
+        );
       },
     },
     {
       title: '经办人',
       dataIndex: 'person',
       align: 'person',
+      width: '10%',
+      className: 'miniFont',
     },
   ],
   data: [
     {
-      name: '关于某公司和某公司的款项纠纷案件',
-      date: '2022-12-1',
-      amount: 2345,
-      person: '李某',
+      key: '1',
+      code: '（2022）沪0116民初17378号',
+      name: '上海枫宇物业管理有限公司与曹军英物业服务合同纠纷',
+      reason: '物业服务合同纠纷',
+      date: '2022年12月1日',
+      amount: 5000,
+      progress: '一审',
+      person: '李平',
+    },
+    {
+      key: '2',
+      code: '（2022）沪0151民初8837号',
+      name: '上海鸿裕投资管理有限公司与金孝柔房屋租赁合同纠纷',
+      reason: '房屋租赁合同纠纷',
+      date: '2022年12月9日',
+      amount: 80000,
+      progress: '一审',
+      person: '张方',
+    },
+    {
+      key: '3',
+      code: '（2022）沪0106民初36654号',
+      name: '中建三局第一建设工程有限责任公司与上海览海置业有限公司其他合同纠纷',
+      reason: '其他合同纠纷',
+      date: '2022年12月9日',
+      amount: 350000,
+      progress: '一审',
+      person: '陈晓丽',
+    },
+    {
+      key: '4',
+      code: '（2022）沪0117民初16730号',
+      name: '上海卓悦富荟商业管理有限公司与傅俊房屋租赁合同纠纷',
+      reason: '房屋租赁合同纠纷',
+      date: '2022年12月12日',
+      amount: 1000000,
+      progress: '一审',
+      person: '李小璐',
+    },
+    {
+      key: '5',
+      code: '（2022）沪0116民初17378号',
+      name: '恒蒂（上海）实业有限公司与上海多甜食品有限公司买卖合同纠纷',
+      reason: '买卖合同纠纷',
+      date: '2022年12月15日',
+      amount: 500000,
+      progress: '一审',
+      person: '张圆圆',
     },
   ],
 };
@@ -180,6 +252,7 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
+    className: 'miniFont',
   },
   {
     title: 'Age',
